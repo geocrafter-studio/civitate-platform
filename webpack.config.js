@@ -1,4 +1,5 @@
 require('dotenv').config({path: 'src/.env'});
+//require('dotenv').config({path: 'src/' + process.env.FLAVOR + '.env'});
 var path = require('path');
 var glob = require('glob');
 var fs = require('fs');

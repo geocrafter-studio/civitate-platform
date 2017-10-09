@@ -230,7 +230,7 @@ place:
     - category: community
       includeOnForm: true
       name: location_type
-      dataset: dev
+      dataset: pboakland
       icon_url: /static/css/images/markers/marker-youth.png
       value: community
       label: _(Community Programs and Services)
@@ -256,7 +256,7 @@ place:
     - category: parks
       includeOnForm: true
       name: location_type
-      dataset: dev
+      dataset: pboakland
       icon_url: /static/css/images/markers/marker-parks.png
       value: parks
       label: _(Parks and Recreation)
@@ -282,7 +282,7 @@ place:
     - category: streets
       includeOnForm: true
       name: location_type
-      dataset: dev
+      dataset: pboakland
       icon_url: /static/css/images/markers/marker-streets.png
       value: streets
       label: _(Streets and Sidewalk)
@@ -308,7 +308,7 @@ place:
     - category: housing
       includeOnForm: true
       name: location_type
-      dataset: dev
+      dataset: pboakland
       icon_url: /static/css/images/markers/marker-housing.png
       value: housing
       label: _(Housing and Jobs)

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block site-title %}
+<!--<a href="/">{{ config.app.name }}</a>-->
+<a href="/">
+  <img id="site-title-image" src="{{STATIC_URL}}css/images/logo.png" alt="{{ config.app.name }}"></img>
+</a>
+{% endblock %}
+
+<!--
+  This will place content at the top of the side bar
+ -->
+{% block sidebar %}
+{% endblock %}
+
+<!--
+  This will place content in the colophon below the map
+ -->
+{% block colophon %}
+<p id="powered-by">{% blocktrans %}Built with {% endblocktrans %} <i class="fa fa-heart pulse"></i> using <a href="http://civitate.geocrafter.eu" class="civitate-logo" target="_blank">Civitate</a>, <span class="nobreak"> {% blocktrans %}a project of {% endblocktrans %}<a href="http://www.geocrafter.eu/" class="geocrafter-logo" target="_blank">Geocrafter - Geospatial Studio</a></span></p>
+{% endblock %}
+
+<!--
+  Analytics, custom JS, and such go here
+ -->
+{% block includes %}
+{% endblock %}

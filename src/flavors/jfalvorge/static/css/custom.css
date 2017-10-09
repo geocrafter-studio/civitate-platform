@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*
+ * This CSS file follows the default Shareabouts style.css.
+ * All rules herein will override the default Shareabouts styles.
+ * NOTE: "With great power comes great responsibility."
+ */
+
+/* =Header
+-------------------------------------------------------------- */
+#site-header {
+  height: 100px;
+}
+
+#site-title-image {
+  max-width: 100%;
+  max-height: 80px;
+  float: left;
+  /*border-radius: 50%;
+  object-fit: contain;*/
+}
+
+#map-container {
+  top: 6em;
+}
+
+#main-btns-container.pos-top-right {
+  top: 6em;
+}
+
+#sidebar {
+  top: 150px;
+}
+
+#sign-in-btn {
+  top: 1em;
+}
+
+#content {
+  top: 6em;
+}
+
+#colophon {
+  padding: 1em 0.5em;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  margin-bottom: 1em;
+}
+
+#colophon a {
+  text-decoration: none;
+}
+
+#colophon a:hover {
+  border-bottom: 1px solid #ffb885;
+}
+
+#powered-by {
+  font-size: 0.75em;
+  display: inline;
+}
+
+a.civitate-logo {
+  font-family: "Orbitron";
+  font-weight: bold;
+  font-size: 1.325em;
+  color: #FF8B61;
+}
+
+a.geocrafter-logo {
+  font-family: "Orbitron";
+  color: #FF8B61;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#map .leaflet-control-attribution {
+  margin-bottom: 1em;
+  display: block;
+}
+
+#list-container {
+  top: 6em;
+}
+
+#sign-in-btn {
+  top: 1.2em;
+}
+
+
+/* =Media Queries
+-------------------------------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+    #powered-by {
+      display: none;
+    }
+
+    #colophon {
+      display: none;
+    }
+
+    #map .leaflet-control-attribution {
+      display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+   #powered-by {
+      display: none;
+    }
+
+    #colophon {
+      display: none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+}

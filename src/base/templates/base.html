@@ -35,8 +35,9 @@
   {% endblock app_icons %}
 
   <!-- Google WebFonts -->
-  <link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron+Sans' rel='stylesheet' type='text/css'>
 
   {% if settings.DEBUG %}
   <link rel="stylesheet" href="{{ STATIC_URL }}css/leaflet-sidebar.css">
@@ -162,11 +163,9 @@
 
   <div id="list-container"></div>
 
-  <!--
   <footer id="colophon">
     {% block colophon %}{% endblock %}
   </footer>
-  -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -177,7 +176,7 @@
   {% else %}
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
   {% endif %}
-  {% if config.cluster %}
+  {% if config.map.markercluster %}
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
   {% endif %}
 
