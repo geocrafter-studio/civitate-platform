@@ -26,6 +26,9 @@ languages:
   - code: en
     label: English
 
+# TODO: Change this....
+cluster: true
+
 map:
 # Settings for map and layer configs
   geolocation_enabled: true
@@ -35,7 +38,7 @@ map:
   cartodb_enabled: false
   geocoding_bar_enabled: false
   geocode_field_label: _(Inserir Endereço...)
-  markercluster: true
+  marker_cluster: true
   # xMin,yMin -8.5249,39.9555 : xMax,yMax -8.3989,40.0267
   geocode_bounding_box: [39.95, -8.52, 40.02, -8.39] # south, west, north, east
 
