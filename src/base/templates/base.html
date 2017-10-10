@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="https://cdn.quilljs.com/1.1.4/quill.snow.css">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/default.css?deployed_at={{ settings.LAST_DEPLOY_DATE|urlencode:'' }}">
   {% else %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}dist/bundle.css?ver=0.7.5.3"></link>
+  <link rel="stylesheet" href="{{ STATIC_URL }}dist/bundle.css?ver=0.7.6.8"></link>
   {% endif %}
 
   <!-- Flavor's Custom Stylesheet -->
@@ -136,12 +136,12 @@
         <div id="sidebar-container"></div>
       {% endif %}
 
+      <div id="layer-info-window-container" class="is-hidden-fadeout"></div>
+    
     </div>
 
     <div id="content"><!-- .place or .page -->
       <a href="#" class="close-btn">&#10005;<span>{% blocktrans %}Close{% endblocktrans %}</span></a>
-      <a href="#" class="maximize-btn"><span>{% blocktrans %}Maximize{% endblocktrans %}</span></a>
-      <a href="#" class="minimize-btn"><span>{% blocktrans %}Minimize{% endblocktrans %}</span></a>
       <article></article>
     </div><!-- end #content -->
 
@@ -176,8 +176,8 @@
   {% else %}
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
   {% endif %}
-  {% if config.map.markercluster %}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+  {% if config.cluster %}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/leaflet.markercluster.js"></script>
   {% endif %}
 
   {% if settings.MAPBOX_TOKEN %}
@@ -280,7 +280,7 @@
     }
   </script>
 
-  <script src="{{STATIC_URL}}dist/bundle.js?ver=0.7.5.3"></script>
+  <script src="{{STATIC_URL}}dist/bundle.js?ver=0.7.6.8"></script>
   <script src="{{API_ROOT}}users/current?format=jsonp&callback=bootstrapCurrentUser"></script>
   <script src="{{API_ROOT}}utils/session-key?format=jsonp&callback=setApiSessionCookie"></script>
 
@@ -310,7 +310,8 @@
       leaflet_sidebar: {{ config.leaflet_sidebar|as_json }},
       pages:           {{ pages_config_json|safe }},
       story:           {{ config.story|as_json }},
-      rightSidebar:    {{ config.right_sidebar|as_json }} 
+      rightSidebar:    {{ config.right_sidebar|as_json }},
+      filters:          {{ config.filters|as_json }}
     };
     $(function() {
       // Ready set go!
@@ -329,7 +330,8 @@
         mapConfig: S.Config.map,
         storyConfig: S.Config.story,
         activityConfig: S.Config.activity,
-        pagesConfig: S.Config.pages
+        pagesConfig: S.Config.pages,
+        filters: S.Config.filters
       });
     });
   }(Shareabouts, jQuery));

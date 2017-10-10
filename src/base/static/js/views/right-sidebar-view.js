@@ -95,7 +95,6 @@ var SidebarStoryItemView = Backbone.Marionette.ItemView.extend({
 
 // A view for managing a collection of story items in a right sidebar panel
 var SidebarStoryCollectionView = Backbone.Marionette.CollectionView.extend({
-  el: ".right-sidebar-content",
   itemView: SidebarStoryItemView,
   initialize: function() {
     var self = this;
@@ -152,6 +151,7 @@ var SidebarStoryCollectionView = Backbone.Marionette.CollectionView.extend({
         self.options.router.on("route", function(fn, route) {
           self.collectionName = self.searchStoryCollections(route);
           if (self.collectionName) {
+            $("body").addClass("right-sidebar-visible");
             self.collection = self.storyCollections[self.collectionName];
             self.render();
           }

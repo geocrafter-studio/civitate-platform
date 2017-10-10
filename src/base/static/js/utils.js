@@ -32,7 +32,7 @@ var self = (module.exports = {
 
   // Determine whether or not the current logged-in user has admin rights
   // for the passed datasetId. Returns true or false.
-  getAdminStatus: function(datasetId) {
+  getAdminStatus: function(datasetId, adminGroups = []) {
     var isAdmin = false;
 
     if (
@@ -40,11 +40,15 @@ var self = (module.exports = {
       Shareabouts.bootstrapped.currentUser.groups
     ) {
       _.each(Shareabouts.bootstrapped.currentUser.groups, function(group) {
+
         // Get the name of the datasetId from the end of the full url
         // provided in Shareabouts.bootstrapped.currentUser.groups
         var url = group.dataset.split("/"),
           match = url[url.length - 1];
-        if (match && match === datasetId && group.name === "administrators") {
+
+        if (match && 
+            match === datasetId && 
+            (group.name === "administrators" || adminGroups.indexOf(group.name) > -1)) {
           isAdmin = true;
         }
       });
@@ -302,7 +306,8 @@ var self = (module.exports = {
     } else if (
       fieldConfig.type === "checkbox_big_buttons" ||
       fieldConfig.type === "radio_big_buttons" ||
-      fieldConfig.type === "dropdown"
+      fieldConfig.type === "dropdown" ||
+      fieldConfig.type === "dropdown-autocomplete"
     ) {
       // Checkboxes, radio buttons, and dropdowns
       if (!_.isArray(existingValue)) {
@@ -395,27 +400,13 @@ var self = (module.exports = {
     _.each(
       args.fields,
       function(field, i) {
+        if (field.type === "commonFormElement") {
+          Object.assign(args.fields[i], args.commonFormElements[args.fields[i].name]);
+        }
+
         var fieldData = _.extend(
           {},
           args.fields[i],
-          self.buildFieldContent(field, args.model.get(field.name)),
-        );
-
-        if (args.isEditingToggled && fieldIsValidForEditor(fieldData)) {
-          fields.push(fieldData);
-        } else if (fieldIsValid(fieldData)) {
-          fields.push(fieldData);
-        }
-      },
-      this,
-    );
-
-    _.each(
-      args.commonFormElements,
-      function(field, i) {
-        var fieldData = _.extend(
-          {},
-          args.commonFormElements[i],
           self.buildFieldContent(field, args.model.get(field.name)),
         );
 

@@ -7,6 +7,8 @@ var RichTextEditorView = require("mapseed-rich-text-editor-view");
 
 var SubmissionCollection = require("../models/submission-collection.js");
 
+const TOOLBAR_FIXED_TOP_THRESHOLD = 1660;
+
 module.exports = Backbone.View.extend({
   events: {
     "click .place-story-bar .btn-previous-story-nav": "onClickStoryPrevious",
@@ -24,14 +26,14 @@ module.exports = Backbone.View.extend({
   initialize: function() {
     var self = this;
 
-    this.isEditable = Util.getAdminStatus(this.options.datasetId);
+    this.categoryConfig = _.findWhere(this.options.placeConfig.place_detail, {
+      category: this.model.get("location_type"),
+    });
+    this.isEditable = Util.getAdminStatus(this.options.datasetId, this.categoryConfig.admin_groups);
     this.isEditingToggled = false;
     this.surveyType = this.options.surveyConfig.submission_type;
     this.supportType = this.options.supportConfig.submission_type;
     this.isModified = false;
-    this.categoryConfig = _.findWhere(this.options.placeConfig.place_detail, {
-      category: this.model.get("location_type"),
-    });
     this.commonFormElements = this.options.placeConfig.common_form_elements;
     this.geometryEditorView = this.options.geometryEditorView;
     this.onAddAttachmentCallback = null;
@@ -315,7 +317,7 @@ module.exports = Backbone.View.extend({
       // the top of the content container, right below the edit toolbar.
       if (this.$qlToolbar.length > 0) {
         $("#content article").on("scroll", function() {
-          if (this.scrollTop < 435) {
+          if (this.scrollTop < TOOLBAR_FIXED_TOP_THRESHOLD) {
             self.$qlToolbar.removeClass("fixed-top");
           } else if (self.$qlToolbar.offset().top < 115) {
             self.$qlToolbar.addClass("fixed-top");
@@ -467,6 +469,7 @@ module.exports = Backbone.View.extend({
       )
     ) {
       if (this.geometryEnabled) {
+        this.geometryEditorView.existingLayerView = null;
         this.geometryEditorView.tearDown();
       }
       this.model.save(

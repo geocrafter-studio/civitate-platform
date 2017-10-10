@@ -56,9 +56,7 @@
 
 @media only screen and (min-height: 768px) and (max-width: 60em) {}
 
-// Catchall media query for screen widths below 60em. Calculated screen heights
-// mean we don't need several media queries as above, and in general don't need
-// to worry about querying heights.
+// Catchall media query for screen widths below 60em.
 @media only screen and (max-width: 60em) {
     html, body, #map {
         height: 100%;
@@ -70,29 +68,19 @@
 
     #main {
         // calculated as 100% of viewport height, minus the height of the header
-        height: calc(100% - #{$header-height-fullscreen});
+        height: calc(100% - #{$header-height-smallscreen + $footer-height-smallscreen});
     }
 
     #map-container {
-        // calculated as 100% of #main height minus the fixed pixel height of the footer
-        height: calc(100% - #{$footer-height-smallscreen});
-    }
-
-    .right-sidebar-visible #map-container {
-        height: $map-height-smallscreen-when-sidebar-visible;
+        height: 100%;
     }
 
     .content-visible #map-container {
         height: 60%
     }
 
-    .right-sidebar-visible #right-sidebar {
-        width: 100%;
-        display: block;
-        left: 0;
-//        top: calc(#{$map-height-smallscreen-when-sidebar-visible} + #{$footer-height-smallscreen});
-        height: 400px;
-        margin-top: 0;
+    #right-sidebar-container {
+        display: none;
     }
 
     .content-visible.content-expanded {
@@ -111,10 +99,6 @@
         #content {
             min-height: 90% !important;
         }
-    }
-
-    .content-visible.right-sidebar-visible #right-sidebar {
-        display: none;
     }
 
     .content-visible.place-form-visible {
@@ -146,7 +130,7 @@
     #content {
         // bump up the bottom margin here so content at the very bottom
         // of a page is not obscured by bottom-clinging buttons
-        margin-bottom: $footer-height-smallscreen + 20px;
+        margin-bottom: $footer-height-smallscreen;
     }
 
     #nav-stories, #add-place {
@@ -154,22 +138,17 @@
         white-space: nowrap;
     }
 
-    #right-sidebar-container {
-        left: 0;
-        width: 100% !important;
-        .sidebar-story-overview-item {
-            h5 {
-                width: 75%;
-                font-size: 1em;
-                float: right;
-                margin: 0;
-            }
-            img {
-                width: 20%
-            }
-        }
-        .right-sidebar-content {
-            width: 100%;
+    .info-icon {
+        display: none;
+    }
+
+    .place-header.editing-toggled, .place-header.editing-toggled {
+        padding-top: 20px;
+    }
+
+    .place-detail-spacer {
+        &.editing-toggled {
+            padding-top: 15px;
         }
     }
 }
@@ -177,8 +156,12 @@
 // default for other media
 @media only screen and (min-width: 60em) {
     // A helper to let the JS know what kind of layout we're using
-    body:after {
-        content: "desktop";
+    body {
+        overflow: hidden;
+
+        &:after {
+            content: "desktop";
+        }
     }
 
     // right sidebar
@@ -413,12 +396,6 @@
         }
     }
 
-    .content-visible #main-btns-container {
-        top: calc(100% - 85px);
-        left: 15px;
-        display: block;
-    }
-
     .place-form-visible #main-btns-container {
         display: none;
     }
@@ -516,7 +493,7 @@
 
     #content > article {
         overflow: auto;
-        padding-top: 50px;
+        padding-top: 1em;
         padding-right: 1em;
         padding-left: 1em;
         padding-bottom: 2em;
@@ -530,14 +507,13 @@
     /* place detail edit bar */
     .place-detail-edit-bar {
         position: fixed;
-        background-color: #FFFFFF;
+        background-color: #FFF;
+        border-bottom: 2px solid #DDD;
         z-index: 5;
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 8px;
+        padding-top: 16px;
         padding-bottom: 16px;
         top: $header-height-fullscreen;
-        width: calc(#{$content-visible-width} - 45px);
+        width: calc(#{$content-visible-width} - 31px);
     }
 
     /* rich text editor toolbar, in fixed-top mode */
@@ -548,7 +524,7 @@
             background-color: #EFEFEF;
             border: none;
             z-index: 400;
-            width: calc(#{$content-visible-width} - 47px);
+            width: calc(#{$content-visible-width} - 32px);
             border-bottom-width: 0.30em;
             border-bottom-style: solid;
             border-bottom-color: #a3c7d9;
@@ -744,6 +720,10 @@
     //}
     #powered-by {
         margin-bottom: 0;
+    }
+
+    .btn-story-nav {
+        display: none;
     }
 }
 

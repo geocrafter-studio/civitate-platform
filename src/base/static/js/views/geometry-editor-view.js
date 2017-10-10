@@ -133,10 +133,7 @@ module.exports = Backbone.View.extend({
 
     this.map.on("draw:edited", function(evt) {
       evt.layers.eachLayer(function(layer) {
-        // Really there's only one layer to iterate over here, because we have at
-        // most one layer in the editing layer group. We enforce this idea by
-        // using _.once().
-        _.once(self.generateGeometry(layer));
+        self.generateGeometry(layer);
       });
     });
 
@@ -219,7 +216,6 @@ module.exports = Backbone.View.extend({
     // Prevent repeat clicks on the same geometry drawing tool
     if (this.layerType === "Point") return;
 
-    this.showIconToolbar();
     this.iconUrl = this.$el
       .find(".geometry-toolbar-icon-field input:checked")
       .val();
@@ -238,11 +234,9 @@ module.exports = Backbone.View.extend({
     }).addTo(this.editingLayerGroup);
 
     this.layerType = "Point";
-    this.$el.find(".edit-geometry").trigger("click");
     this.resetWorkingGeometry();
     this.generateGeometry(this.getLayerFromEditingLayerGroup());
     this.setColorpicker();
-    this.hideIconToolbar();
     this.swapToolbarVisibility();
     this.displayHelpMessage("edit-marker-geometry-msg");
   },

@@ -110,6 +110,11 @@ module.exports = Backbone.View.extend({
       }
 
       if (isBasemap) {
+        self.checkLayerZoom(config.maxZoom);
+        self.map.options.maxZoom = (config.maxZoom)
+          ? config.maxZoom
+          : self.options.mapConfig.options.maxZoom;
+
         _.each(self.options.basemapConfigs, function(basemap) {
           if (basemap.id === id) {
             self.map.addLayer(layer);
@@ -129,6 +134,14 @@ module.exports = Backbone.View.extend({
       }
     });
   }, // end initialize
+
+  checkLayerZoom(maxZoom) {
+    if (maxZoom && this.map.getZoom() > maxZoom) {
+      _.defer(() => {
+        this.map.setZoom(parseInt(maxZoom, 10));
+      });
+    }
+  },
 
   onUserHideModel: function(collectionId) {
     return function(model) {
@@ -295,48 +308,45 @@ module.exports = Backbone.View.extend({
     this.map.setView(latLng, this.options.mapConfig.options.maxZoom || 17);
   },
 
-  filter: function(locationType) {
-    var self = this;
-    this.locationTypeFilter = locationType;
+  filter: function(locationTypeModel, mapWasUnfiltered, mapWillBeUnfiltered) {
+    let locationType = locationTypeModel.get("locationType"),
+        isActive = locationTypeModel.get("active");
 
-    _.each(this.places, function(collection, collectionId) {
-      collection.each(function(model) {
-        var modelLocationType = model.get("location_type");
+    if (mapWasUnfiltered || mapWillBeUnfiltered) {
+      for (let collectionId in this.places) {
+        this.places[collectionId]
+          .filter((model) => {
+            return model.get("location_type") !== locationType;
+          })
+          .forEach((model) => {
+            if (mapWasUnfiltered) {
+              this.layerViews[collectionId][model.cid].filter();
+            } else if (mapWillBeUnfiltered) {
+              this.layerViews[collectionId][model.cid].unfilter();
+            }
+          });
+      }
+    } else {
+      for (let collectionId in this.places) {
+        this.places[collectionId]
+          .where({location_type: locationType})
+          .forEach((model) => {
+            (isActive) ?
+              this.layerViews[collectionId][model.cid].unfilter() :
+              this.layerViews[collectionId][model.cid].filter();
+          });
+      }
+    }
 
-        if (
-          modelLocationType &&
-          modelLocationType.toUpperCase() === locationType.toUpperCase()
-        ) {
-          self.layerViews[collectionId][model.cid].show();
-        } else {
-          self.layerViews[collectionId][model.cid].hide();
-        }
-      });
-    });
-
-    _.each(this.landmarks, function(collection, collectionId) {
-      collection.each(function(model) {
-        var modelLocationType = model.get("location_type");
-
-        if (
-          modelLocationType &&
-          modelLocationType.toUpperCase() === locationType.toUpperCase()
-        ) {
-          self.layerViews[collectionId][model.id].show();
-        } else {
-          self.layerViews[collectionId][model.id].hide();
-        }
-      });
-    });
+    // TODO: filtering for landmarks also?
   },
+
   clearFilter: function(collectionId) {
     var self = this;
     this.locationTypeFilter = null;
     _.each(this.places, function(collection) {
       collection.each(function(model) {
-        if (self.layerViews[model.cid]) {
-          self.layerViews[model.cid].render();
-        }
+        if (self.layerViews[model.cid]) { self.layerViews[model.cid].render(); }
       });
     });
 
@@ -348,37 +358,21 @@ module.exports = Backbone.View.extend({
       });
     });
   },
+
   getLayerGroups: function() {
-    var self = this;
-    var clusterOptions = self.options.cluster;
-    if (!clusterOptions) {
+    if (!this.options.cluster) {
       return L.layerGroup();
     } else {
-      return L.markerClusterGroup({
-        iconCreateFunction: function(cluster) {
-          var markers = cluster.getAllChildMarkers();
-          var n = markers.length;
-          var small = n < clusterOptions.threshold;
-          var className = small
-            ? clusterOptions.class_small
-            : clusterOptions.class_large;
-          var size = small
-            ? clusterOptions.size_small
-            : clusterOptions.size_large;
-          return L.divIcon({
-            html: n,
-            className: className,
-            iconSize: [size, size],
-          });
-        },
-      });
+      return L.markerClusterGroup(this.options.cluster);
     }
   },
+
   createLayerFromConfig: function(config) {
     var self = this,
       layer,
       collectionId,
       collection;
+
     if (config.type && config.type === "json") {
       var url = config.url;
       if (config.sources) {
@@ -402,6 +396,7 @@ module.exports = Backbone.View.extend({
         // IDs can be returned all at once, while actual geometries are
         // capped at 1000 per request. Gets an array of all IDs then
         // requests their geometry 1000 at a time.
+        self.map.fire("layer:loading", {id: config.id});
         L.esri.Tasks
           .query({
             url: config.url,
@@ -427,6 +422,7 @@ module.exports = Backbone.View.extend({
                   if (esriLayers.length === Math.floor(ids.length / 1000) + 1) {
                     // All requests have completed
                     self.layers[config.id] = L.layerGroup(esriLayers);
+                    self.map.fire("layer:loaded", {id: config.id});
                   }
                 });
             }
@@ -439,7 +435,13 @@ module.exports = Backbone.View.extend({
             return L.Argo.getStyleRule(feature, config.rules)["style"];
           };
         }
-        layer = L.esri.featureLayer(esriOptions);
+        layer = L.esri.featureLayer(esriOptions)
+          .on("loading", function() {
+            self.map.fire("layer:loading", {id: config.id});
+          })
+          .on("load", function() {
+            self.map.fire("layer:loaded", {id: config.id});
+          });
 
         if (config.popupContent) {
           layer.bindPopup(function(feature) {
@@ -458,10 +460,12 @@ module.exports = Backbone.View.extend({
       // into our map is handled in our Backbone router.
       // nothing to do
     } else if (config.type && config.type === "cartodb") {
+      this.map.fire("layer:loading", {id: config.id});  
       cartodb
         .createLayer(self.map, config.url, { legends: false })
         .on("done", function(cartoLayer) {
           self.layers[config.id] = cartoLayer;
+          self.map.fire("layer:loaded", {id: config.id});
           // This is only set when the 'visibility' event is fired before
           // our carto layer is loaded:
           if (config.asyncLayerVisibleDefault) {
@@ -469,6 +473,7 @@ module.exports = Backbone.View.extend({
           }
         })
         .on("error", function(err) {
+          self.map.fire("layer:error", {id: config.id});
           Util.log("Cartodb layer creation error:", err);
         });
     } else if (config.type && config.type === "wmts") {
@@ -486,6 +491,15 @@ module.exports = Backbone.View.extend({
         fillColor: config.color,
         weight: config.weight,
         fillOpacity: config.fillOpacity,
+      })
+      .on("loading", function() {
+        self.map.fire("layer:loading", {id: config.id});
+      })
+      .on("load", function() {
+        self.map.fire("layer:loaded", {id: config.id});
+      })
+      .on("tileerror", function() {
+        self.map.fire("layer:error", {id: config.id});
       });
       self.layers[config.id] = layer;
     } else if (config.layers) {
@@ -504,12 +518,32 @@ module.exports = Backbone.View.extend({
         fillColor: config.color,
         weight: config.weight,
         fillOpacity: config.fillOpacity,
+      })
+      .on("loading", function() {
+        self.map.fire("layer:loading", {id: config.id});
+      })
+      .on("load", function() {
+        self.map.fire("layer:loaded", {id: config.id});
+      })
+      .on("tileerror", function() {
+        self.map.fire("layer:error", {id: config.id});
       });
       self.layers[config.id] = layer;
     } else {
       // Assume a tile layer
       // TODO: Isn't type=tile for back compatibility
-      layer = L.tileLayer(config.url, config);
+      layer = L.tileLayer(
+        config.url, config
+      )
+      .on("loading", function() {
+        self.map.fire("layer:loading", {id: config.id});
+      })
+      .on("load", function() {
+        self.map.fire("layer:loaded", {id: config.id});
+      })
+      .on("tileerror", function() {
+        self.map.fire("layer:error", {id: config.id});
+      });
       self.layers[config.id] = layer;
     }
   },

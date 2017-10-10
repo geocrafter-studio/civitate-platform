@@ -1,7 +1,5 @@
 # Mapseed _(platform)_
 
-[![Build Status](https://secure.travis-ci.org/mapseed/platform.png)](http://travis-ci.org/mapseed/platform)
-
 > A simple, beautiful way to collect information and tell geographic stories.
 
 Mapseed is a platform that allows anyone to create community-driven maps on the web. These maps allow users to report issues or submit ideas and respond to the issues & ideas of others. Combine user-generated content with external data overlaid on the same map to allow anyone to see what's going on in the area at a glance.
@@ -30,7 +28,7 @@ The Mapseed platform is a fork of [Shareabouts](https://github.com/openplans/sha
 
 ## Install
 
-Hey Duwamish! requires Python 2.7 ([Instructions for Windows](/doc/WINDOWS_SETUP.md)) and [Node + and the latest npm](https://nodejs.org/en/download/package-manager/).
+Hey Duwamish! requires Python 2.7 ([Instructions for Windows](/doc/WINDOWS_SETUP.md)) and [Node + and the latest npm](https://nodejs.org/en/download/package-manager/). We recommend managing node/npm versions using [nvm](https://github.com/creationix/nvm).
 
 Install `pip` and `virtualenv`, if not already installed. These will keep your python code isolated from the rest of your machine and ensure you have the correct versions.
 
@@ -100,17 +98,30 @@ By default, this will serve your map at [http://localhost:8000](http://localhost
 source env/bin/activate
 ```
 
+### Use the Dev API
+
+If you want to develop without setting up your own [Mapseed API backend](https://github.com/mapseed/api), we've got you covered! Copy and paste this into `src/.env` to connect your local install to the Dev API (full of dummy Duwamish data):
+
+```
+FLAVOR=duwamish_flavor
+SITE_URL=https://dev-api.heyduwamish.org/api/v2/smartercleanup/datasets/duwamish/
+SITE_KEY=MGMzOWU2ZmUwZmFkZDYzZTI1ZmQ3MDhi
+
+DUWAMISH_SITE_URL=https://dev-api.heyduwamish.org/api/v2/smartercleanup/datasets/duwamish
+DUWAMISH_DATASET_KEY=MGMzOWU2ZmUwZmFkZDYzZTI1ZmQ3MDhi
+```
+
 ### Using the in-app editor
 
-The platform includes an in-app editor that you can use to update and hide places and comments on a per-dataset basis. Only authenticated administrators are allowed to make edits. Authentication is performed via third-party social media services (Twitter and Facebook are currently supported), so administrators will need an account on either of these services to use the editor.
+The platform includes an in-app editor that you can use to update and hide places and comments on a per-dataset basis. Only authenticated administrators are allowed to make edits. Authentication is performed via third-party social media services (Twitter, Facebook, and Google+ are currently supported), so administrators will need an account on one of these services to use the editor.
 
 Follow these instructions to grant administrator privileges to one or more users:
 
 1. If the user to whom you'd like to grant administrator privileges has previously logged into your app via a social media service, skip to the next step. Otherwise, you'll need to manually add the user before granting privileges. Follow these steps:
 
-    * In the admin panel, click `Users`, then `Add user +`, then create a new user. The username you enter here must match the social media username of the person to whom you'd like to grant administrator privileges. 
+    * In the admin panel, click `Users`, then `Add user +`, then create a new User. The username you enter here is arbitrary, although for convenience it may match the social media username of the person to whom you'd like to grant administrator privileges. Note that you may add several user social auths under a single User.
 
-    * Next, in the `User social auths` panel, click `Add user social auth +`, select the user you just created under `User`, enter the name of the social service provider (`twitter` or `facebook`), then enter the social user's `Uid`. The `Uid` can be looked up online: [here](https://tweeterid.com/) for Twitter, and [here](https://lookup-id.com/) for Facebook.
+    * Next, in the `User social auths` panel, click `Add user social auth +`, select the User you just created under `User` (or choose an existing User), enter the name of the social service provider (`twitter`, `facebook`, or `google-oauth2`), then enter the social user's `Uid`. The `Uid` can be looked up online: [here](https://tweeterid.com/) for Twitter, and [here](https://lookup-id.com/) for Facebook. For Google, the `Uid` is the user's Gmail address.
 
 2. In the Django admin panel, click on `Data sets` and then the name of the dataset you'd like to grant administrator privileges for.
 
@@ -135,19 +146,6 @@ Follow these instructions to grant administrator privileges to one or more users
 Questions and issues should be filed [right here on GitHub](https://github.com/mapseed/platform/issues).
 
 If you'd like to contribute code, we'd love to have it! Fork and submit a PR (base your branch off `master`). No change is too small!
-
-### Use the Dev API
-
-If you want to develop without setting up your own [Mapseed API backend](https://github.com/mapseed/api), we've got you covered! Copy and paste this into `src/.env` to connect your local install to the Dev API (full of dummy Duwamish data):
-
-```
-FLAVOR=duwamish_flavor
-SITE_URL=https://dev-api.heyduwamish.org/api/v2/smartercleanup/datasets/duwamish/
-SITE_KEY=MGMzOWU2ZmUwZmFkZDYzZTI1ZmQ3MDhi
-
-DUWAMISH_SITE_URL=https://dev-api.heyduwamish.org/api/v2/smartercleanup/datasets/duwamish
-DUWAMISH_DATASET_KEY=MGMzOWU2ZmUwZmFkZDYzZTI1ZmQ3MDhi
-```
 
 Credits
 -------------
