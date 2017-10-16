@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-12 10:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: _config.translations.py:1
+msgid "Inserir Endereço..."
+msgstr ""
+
+#: _config.translations.py:2
+msgid "Bem Vindo ao Civitate! Versão demonstração para a freguesia de Alvorge."
+msgstr ""
+
+#: _config.translations.py:3
+msgid "apoiou"
+msgstr ""
+
+#: _config.translations.py:4 _config.translations.py:17
+#: _config.translations.py:118
+msgid "Anónimo"
+msgstr ""
+
+#: _config.translations.py:5
+msgid "apoiar"
+msgstr ""
+
+#: _config.translations.py:6
+msgid "Apoiar"
+msgstr ""
+
+#: _config.translations.py:7
+msgid "apoios"
+msgstr ""
+
+#: _config.translations.py:8
+msgid "comentários"
+msgstr ""
+
+#: _config.translations.py:9
+msgid "comentou"
+msgstr ""
+
+#: _config.translations.py:10
+msgid "Inserir Comentário"
+msgstr ""
+
+#: _config.translations.py:11 _config.translations.py:12
+#: _config.translations.py:16
+msgid "Comentário"
+msgstr ""
+
+#: _config.translations.py:13 _config.translations.py:108
+msgid "O seu Nome"
+msgstr ""
+
+#: _config.translations.py:14
+msgid "Comentar"
+msgstr ""
+
+#: _config.translations.py:15
+msgid "comentário"
+msgstr ""
+
+#: _config.translations.py:18
+msgid "Ver Mapa"
+msgstr ""
+
+#: _config.translations.py:19 _config.translations.py:115
+msgid "Colocar no mapa!"
+msgstr ""
+
+#: _config.translations.py:20
+msgid "Novo Reporte"
+msgstr ""
+
+#: _config.translations.py:21 _config.translations.py:38
+#: _config.translations.py:54 _config.translations.py:71
+#: _config.translations.py:84
+msgid "Breve descrição:"
+msgstr ""
+
+#: _config.translations.py:22 _config.translations.py:39
+#: _config.translations.py:55 _config.translations.py:72
+#: _config.translations.py:85
+msgid "Inserir breve descrição..."
+msgstr ""
+
+#: _config.translations.py:23 _config.translations.py:40
+#: _config.translations.py:56 _config.translations.py:73
+#: _config.translations.py:86 _config.translations.py:98
+msgid "Título:"
+msgstr ""
+
+#: _config.translations.py:24
+msgid "Vedação"
+msgstr ""
+
+#: _config.translations.py:25
+msgid "Edifício"
+msgstr ""
+
+#: _config.translations.py:26
+msgid "Sinalética"
+msgstr ""
+
+#: _config.translations.py:27
+msgid "Publicidade"
+msgstr ""
+
+#: _config.translations.py:28
+msgid "Pavimento Vias"
+msgstr ""
+
+#: _config.translations.py:29
+msgid "Marcação Vias"
+msgstr ""
+
+#: _config.translations.py:30
+msgid "Parque Infantil"
+msgstr ""
+
+#: _config.translations.py:31 _config.translations.py:47
+#: _config.translations.py:64 _config.translations.py:77
+#: _config.translations.py:90
+msgid "Outro"
+msgstr ""
+
+#: _config.translations.py:32 _config.translations.py:33
+#: _config.translations.py:48 _config.translations.py:49
+#: _config.translations.py:65 _config.translations.py:66
+#: _config.translations.py:78 _config.translations.py:79
+#: _config.translations.py:91 _config.translations.py:92
+msgid "Tipo de ocorrência verificada:"
+msgstr ""
+
+#: _config.translations.py:34 _config.translations.py:50
+#: _config.translations.py:67 _config.translations.py:80
+#: _config.translations.py:93
+msgid "Detalhe:"
+msgstr ""
+
+#: _config.translations.py:35 _config.translations.py:51
+#: _config.translations.py:68 _config.translations.py:81
+#: _config.translations.py:94
+msgid "Detalhe a ocorrência..."
+msgstr ""
+
+#: _config.translations.py:36 _config.translations.py:52
+#: _config.translations.py:69
+msgid "Descrição:"
+msgstr ""
+
+#: _config.translations.py:37 _config.translations.py:126
+#: _config.translations.py:133 _config.translations.py:145
+msgid "Infraestruturas e Rodovias"
+msgstr ""
+
+#: _config.translations.py:41
+msgid "Contentor"
+msgstr ""
+
+#: _config.translations.py:42
+msgid "Ecoponto"
+msgstr ""
+
+#: _config.translations.py:43
+msgid "Cesto"
+msgstr ""
+
+#: _config.translations.py:44
+msgid "Dejectos"
+msgstr ""
+
+#: _config.translations.py:45
+msgid "Despejo"
+msgstr ""
+
+#: _config.translations.py:46
+msgid "Efluentes"
+msgstr ""
+
+#: _config.translations.py:53 _config.translations.py:124
+#: _config.translations.py:134 _config.translations.py:146
+msgid "Higiene Urbana e Recolha de Resíduos"
+msgstr ""
+
+#: _config.translations.py:57
+msgid "Corte Abastecimento"
+msgstr ""
+
+#: _config.translations.py:58
+msgid "Fuga"
+msgstr ""
+
+#: _config.translations.py:59
+msgid "Rotura"
+msgstr ""
+
+#: _config.translations.py:60
+msgid "Abatimento"
+msgstr ""
+
+#: _config.translations.py:61
+msgid "Tampas"
+msgstr ""
+
+#: _config.translations.py:62
+msgid "Sargetas"
+msgstr ""
+
+#: _config.translations.py:63
+msgid "Fossa"
+msgstr ""
+
+#: _config.translations.py:70 _config.translations.py:121
+#: _config.translations.py:135 _config.translations.py:147
+msgid "Águas e Saneamento"
+msgstr ""
+
+#: _config.translations.py:74
+msgid "Equipamentos"
+msgstr ""
+
+#: _config.translations.py:75
+msgid "Vandalismo"
+msgstr ""
+
+#: _config.translations.py:76
+msgid "Manutenção"
+msgstr ""
+
+#: _config.translations.py:82 _config.translations.py:95
+msgid "Descrição"
+msgstr ""
+
+#: _config.translations.py:83 _config.translations.py:125
+#: _config.translations.py:136 _config.translations.py:148
+msgid "Parques e Lazer"
+msgstr ""
+
+#: _config.translations.py:87
+msgid "Assalto"
+msgstr ""
+
+#: _config.translations.py:88
+msgid "Roubo"
+msgstr ""
+
+#: _config.translations.py:89
+msgid "Ruído"
+msgstr ""
+
+#: _config.translations.py:96 _config.translations.py:123
+#: _config.translations.py:137 _config.translations.py:149
+msgid "Segurança e Vigilância"
+msgstr ""
+
+#: _config.translations.py:97
+msgid "Título da ideia/sugestão:"
+msgstr ""
+
+#: _config.translations.py:99
+msgid "Inserir título..."
+msgstr ""
+
+#: _config.translations.py:100
+msgid "Descreva a sua ideia/sugestão:"
+msgstr ""
+
+#: _config.translations.py:101
+msgid "Descrição..."
+msgstr ""
+
+#: _config.translations.py:102
+msgid "Descrição da ideia/sugestão:"
+msgstr ""
+
+#: _config.translations.py:103
+msgid "Adopção da Ideia/Sugestão:"
+msgstr ""
+
+#: _config.translations.py:104 _config.translations.py:122
+#: _config.translations.py:138 _config.translations.py:150
+msgid "Ideia/Sugestão"
+msgstr ""
+
+#: _config.translations.py:105
+msgid "criou"
+msgstr ""
+
+#: _config.translations.py:106
+msgid "O seu Email"
+msgstr ""
+
+#: _config.translations.py:107
+msgid "Receber actualizações do seu reporte"
+msgstr ""
+
+#: _config.translations.py:109
+msgid "Nome"
+msgstr ""
+
+#: _config.translations.py:110
+msgid "Sim"
+msgstr ""
+
+#: _config.translations.py:111
+msgid "Não"
+msgstr ""
+
+#: _config.translations.py:112
+msgid "Situação Resolvida?"
+msgstr ""
+
+#: _config.translations.py:113
+msgid "Situação Resolvida:"
+msgstr ""
+
+#: _config.translations.py:114
+msgid "Escolher sim no caso da situação estar resolvida."
+msgstr ""
+
+#: _config.translations.py:116
+msgid "Data do reporte/ideia/sugestão"
+msgstr ""
+
+#: _config.translations.py:117
+msgid "Foi registado em:"
+msgstr ""
+
+#: _config.translations.py:119
+msgid "Modo Lista"
+msgstr ""
+
+#: _config.translations.py:120
+msgid "Descreva com pormenor..."
+msgstr ""
+
+#: _config.translations.py:127
+msgid "Freguesia"
+msgstr ""
+
+#: _config.translations.py:128
+msgid "Reportes"
+msgstr ""
+
+#: _config.translations.py:129
+msgid "Dados"
+msgstr ""
+
+#: _config.translations.py:130
+msgid "Temas do Mapa:"
+msgstr ""
+
+#: _config.translations.py:131
+msgid "Satélite"
+msgstr ""
+
+#: _config.translations.py:131
+msgid "Híbrido"
+msgstr ""
+
+#: _config.translations.py:132
+msgid "Actividade Recente:"
+msgstr ""
+
+#: _config.translations.py:139
+msgid "Não Resolvida"
+msgstr ""
+
+#: _config.translations.py:140
+msgid "Resolvida"
+msgstr ""
+
+#: _config.translations.py:141
+msgid "Tipos de Reportes:"
+msgstr ""
+
+#: _config.translations.py:142
+msgid "Sobre"
+msgstr ""
+
+#: _config.translations.py:143
+msgid "Filtrar por Categorias"
+msgstr ""
+
+#: _config.translations.py:144
+msgid "Tudo"
+msgstr ""
+
+#: _config.translations.py:151
+msgid "Site Freguesia"
+msgstr ""
+
+#: _config.translations.py:152
+msgid "Site Município"
+msgstr ""
+
+#: _config.translations.py:153
+msgid "Sobre a Freguesia"
+msgstr ""
+
+
+#: jstemplates/place-detail.html:1
+msgid "View On Map"
+msgstr "Ver no Mapa"
+
+#: jstemplates/place-detail.html:2
+msgid "em"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Built with "
+msgstr "Desenvolvido com "
+
+#: templates/index.html:21
+msgid "using"
+msgstr "utilizando"
+
+#: templates/index.html:21
+msgid "a project of "
+msgstr "um projecto "

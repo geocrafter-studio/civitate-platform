@@ -394,6 +394,9 @@ if all(k in env for k in ['EMAIL_ADDRESS', 'EMAIL_HOST', 'EMAIL_PORT',
                     if not EMAIL_DEBUG else \
                     'django.core.mail.backends.console.EmailBackend'
 
+    # DJANGO 1.7 HACK
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 # geolocation services:
 MAPQUEST_KEY = env.get('MAPQUEST_KEY', 'Fmjtd%7Cluur2g0bnl%2C25%3Do5-9at29u')
 MAPBOX_TOKEN = env.get('MAPBOX_TOKEN', '')

@@ -87,6 +87,33 @@ a.geocrafter-logo {
   top: 1.2em;
 }
 
+.sign-in-menu-item {
+  float: left;
+  width: 33.3%;
+  font-weight: bold;
+}
+
+.sign-in-menu.is-exposed {
+  top: 6em;
+}
+
+a.google-btn {
+  background-color: #dd4b39;
+  color: #fff !important;
+  margin-right: 0.50em;
+}
+
+/* FIXME: Find a way to make optional the static pos-top-left */
+#main-btns-container.pos-top-left {
+  top: 6em;
+  left: calc(100% - 300px);
+}
+
+.content-visible #main-btns-container {
+  top: calc(100% - 85px);
+  left: 3.5em;
+  display: block;
+}
 
 /* =Media Queries
 -------------------------------------------------------------- */
