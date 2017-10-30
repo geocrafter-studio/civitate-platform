@@ -1,0 +1,21 @@
+{{ config.app.name }}
+Fomentando uma cidadania activa
+
+Obrigado por submeter um novo reporte!
+
+Para partilhar e ficar actualizado sobre o seu reporte utilize o seguinte URL:
+http://{{ request.get_host }}/{{ place.properties.datasetSlug }}/{{ place.id }}
+
+Obrigado novamente por utilizar o Civitate!
+
+=====================
+
+{{ config.app.name }}
+Engaging an active citizenship
+
+Thanks for submitting a new report!
+
+To share and keep updated about your report use the follorwin URL:
+http://{{ request.get_host }}/{{ place.properties.datasetSlug }}/{{ place.id }}
+
+Thank you again for using Civitate!

@@ -1,0 +1,58 @@
+###########################################################
+# Dockerfile to build Python WSGI Application Containers
+############################################################
+
+# Set the base image to Alpine
+FROM python:2.7-alpine
+
+# File Author / Maintainer
+MAINTAINER Fernando Ribeiro <fernando.ribeiro@geocrafter.eu>
+
+# Install basic applications
+RUN apk add --no-cache --update \
+    gcc \
+    git \
+    curl \
+    bash \
+    nodejs-npm \
+    postgresql-dev \
+    libjpeg-turbo-dev \
+    musl-dev \
+    zlib-dev
+
+# Unstable nodeJS package
+RUN apk add --no-cache --update --repository http://dl-4.alpinelinux.org/alpine/edge/main/ \
+    nodejs-npm
+
+# Add packages from testing repo
+RUN apk add \
+    geos-dev \
+    py-geos \
+    gdal-dev \
+    py-gdal \
+    --no-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/
+
+# If you want to deploy from an online host git repository, you can use the following command to clone:
+# RUN git clone https://github.com/smartercleanup/platform.git && cd platform && git checkout 0.8.2 && cd -
+# # for local testing, cd into project root and uncomment this line:
+ADD . platform
+
+# Get pip to download and install requirements:
+RUN LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install -r /platform/requirements.txt --cache-dir .pip-cache && rm -rf .pip-cache"
+
+# Set the default directory where CMD will execute
+WORKDIR /platform
+
+# Fix this: https://stackoverflow.com/questions/18643998/geodjango-geosexception-error
+RUN mkdir static \
+    && sed -i.bak "s/geos_version().decode()/geos_version().decode().split(\' \')[0]/g" /usr/local/lib/python2.7/site-packages/django/contrib/gis/geos/libgeos.py \
+    && rm -rf ~/.cache/pip/* \
+    && rm -rf /var/cache/apk/*
+
+VOLUME /platform/static
+
+# Expose port
+EXPOSE ${PORT}
+
+# Bootstrap script
+CMD /platform/start.sh

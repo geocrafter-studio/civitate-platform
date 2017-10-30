@@ -4,8 +4,17 @@
 {% block site-title %}
 <!--<a href="/">{{ config.app.name }}</a>-->
 <a href="/">
-  <img id="site-title-image" src="{{STATIC_URL}}css/images/logo.png" alt="{{ config.app.name }}"></img>
+  <img id="site-logo" src="{{STATIC_URL}}css/images/logo.png" alt="{{ config.app.name }}">
+  <img id="site-banner" src="{{STATIC_URL}}css/images/top-banner.png">
 </a>
+{% endblock %}
+
+{% block app_icons %}
+  <!-- Favicon & Progressively-Enhanced Touch Icons: http://mathiasbynens.be/notes/touch-icons#sizes -->
+  <link rel="icon" href="{{ config.static_url }}css/images/favicon.ico">
+  <link rel="shortcut icon" href="{{ config.static_url }}css/images/civitate-logo-16.png">
+  <link rel="apple-touch-icon-precomposed" href="{{ config.static_url }}css/images/civitate-logo-16.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 {% endblock %}
 
 <!--

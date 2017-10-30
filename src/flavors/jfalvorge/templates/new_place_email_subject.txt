@@ -1,0 +1,1 @@
+Civitate: Novo reporte | New report - {{ place.properties.location_type }}!

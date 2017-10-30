@@ -11,7 +11,13 @@
   height: 100px;
 }
 
-#site-title-image {
+#site-banner {
+  max-width: 100%;
+  max-height: 80px;
+  float: left;
+}
+
+#site-logo {
   max-width: 100%;
   max-height: 80px;
   float: left;
@@ -103,6 +109,13 @@ a.google-btn {
   margin-right: 0.50em;
 }
 
+#content > article {
+}
+
+.place-detail-edit-bar {
+ top: 6em;
+}
+
 /* FIXME: Find a way to make optional the static pos-top-left */
 #main-btns-container.pos-top-left {
   top: 6em;
@@ -112,7 +125,6 @@ a.google-btn {
 .content-visible #main-btns-container {
   top: calc(100% - 85px);
   left: 3.5em;
-  display: block;
 }
 
 /* =Media Queries
@@ -130,6 +142,10 @@ a.google-btn {
     #map .leaflet-control-attribution {
       display: none;
     }
+
+    #site-banner {
+      display: none;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -140,7 +156,23 @@ a.google-btn {
     #colophon {
       display: none;
     }
+
+    #site-banner {
+      display: none;
+    }
+
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1399px) {
+   #powered-by {
+      display: none;
+    }
+
+    #colophon {
+      display: none;
+    }
+
+    #site-banner {
+      display: none;
+    }
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-12 10:03+0100\n"
+"POT-Creation-Date: 2017-10-18 11:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgid "Descrição:"
 msgstr "Description:"
 
 #: _config.translations.py:37 _config.translations.py:126
-#: _config.translations.py:133 _config.translations.py:145
+#: _config.translations.py:134 _config.translations.py:148
 msgid "Infraestruturas e Rodovias"
 msgstr "Infrasctuctures and Ways"
 
@@ -194,7 +194,7 @@ msgid "Efluentes"
 msgstr "Effluents"
 
 #: _config.translations.py:53 _config.translations.py:124
-#: _config.translations.py:134 _config.translations.py:146
+#: _config.translations.py:135 _config.translations.py:149
 msgid "Higiene Urbana e Recolha de Resíduos"
 msgstr "Urban Hygiene and Waste Management"
 
@@ -227,7 +227,7 @@ msgid "Fossa"
 msgstr "Septic Tank"
 
 #: _config.translations.py:70 _config.translations.py:121
-#: _config.translations.py:135 _config.translations.py:147
+#: _config.translations.py:136 _config.translations.py:150
 msgid "Águas e Saneamento"
 msgstr "Water and Sewage"
 
@@ -248,7 +248,7 @@ msgid "Descrição"
 msgstr "Description"
 
 #: _config.translations.py:83 _config.translations.py:125
-#: _config.translations.py:136 _config.translations.py:148
+#: _config.translations.py:137 _config.translations.py:151
 msgid "Parques e Lazer"
 msgstr "Parks and Leisure"
 
@@ -265,7 +265,7 @@ msgid "Ruído"
 msgstr "Noise"
 
 #: _config.translations.py:96 _config.translations.py:123
-#: _config.translations.py:137 _config.translations.py:149
+#: _config.translations.py:138 _config.translations.py:152
 msgid "Segurança e Vigilância"
 msgstr "Security and Vigilance"
 
@@ -294,7 +294,7 @@ msgid "Adopção da Ideia/Sugestão:"
 msgstr "Idea/Suggestion adoption:"
 
 #: _config.translations.py:104 _config.translations.py:122
-#: _config.translations.py:138 _config.translations.py:150
+#: _config.translations.py:139 _config.translations.py:153
 msgid "Ideia/Sugestão"
 msgstr "Idea/Suggestion"
 
@@ -370,49 +370,132 @@ msgstr "Map Layers:"
 msgid "Satélite"
 msgstr "Satellite"
 
-#: _config.translations.py:131
+#: _config.translations.py:132
 msgid "Híbrido"
 msgstr "Hybrid"
 
-#: _config.translations.py:132
+#: _config.translations.py:133
 msgid "Actividade Recente:"
 msgstr "Recent Activity:"
 
-#: _config.translations.py:139
+#: _config.translations.py:140
 msgid "Não Resolvida"
 msgstr "Not Resolved"
 
-#: _config.translations.py:140
+#: _config.translations.py:141
 msgid "Resolvida"
 msgstr "Resolved"
 
-#: _config.translations.py:141
+#: _config.translations.py:142
 msgid "Tipos de Reportes:"
 msgstr "Report Types:"
 
-#: _config.translations.py:142
+#: _config.translations.py:143 _config.translations.py:145
 msgid "Sobre"
 msgstr "About"
 
-#: _config.translations.py:143
+#: _config.translations.py:144
+#, fuzzy
+#| msgid "Edifício"
+msgid "Início"
+msgstr "Building"
+
+#: _config.translations.py:146
 msgid "Filtrar por Categorias"
 msgstr "Filter by Categories"
 
-#: _config.translations.py:144
+#: _config.translations.py:147
 msgid "Tudo"
 msgstr "Everything"
 
-#: _config.translations.py:151
+#: _config.translations.py:154
+msgid "Sobre a Freguesia"
+msgstr "About the Parish"
+
+#: _config.translations.py:155
+msgid "Mensagem Presidente"
+msgstr ""
+
+#: _config.translations.py:156
 msgid "Site Freguesia"
 msgstr "Parish Site"
 
-#: _config.translations.py:152
+#: _config.translations.py:157
 msgid "Site Município"
 msgstr "Municipal Site"
 
-#: _config.translations.py:153
-msgid "Sobre a Freguesia"
-msgstr "About the Parish"
+#: jstemplates/pages/about.html:1
+msgid ""
+"\n"
+"<h1>Sobre o <b>CIVITATE</b></h1>\n"
+"\n"
+"<h3>Fomentando uma cidadania activa</h3>\n"
+"\n"
+"<h4>Civitate - Report Management System</h4>\n"
+"\n"
+"<p>Civitate é um produto desenvolvido pela Geocrafter - Geospatial Studio...."
+"</p>\n"
+"\n"
+"<p>Versão: {{ config.app.version }}</p>\n"
+msgstr ""
+
+#: jstemplates/pages/message.html:1
+msgid ""
+"\n"
+"<h1>Mensagem do Presidente</h1>\n"
+"\n"
+"<p>Caros cidadãos,</p>\n"
+"<br>\n"
+"<br>\n"
+"<p>\n"
+"    Mensagem....\n"
+"</p>\n"
+"<br>\n"
+"<br>\n"
+"<p>\n"
+"    Cumprimentos,\n"
+"    Assinatura\n"
+"</p>\n"
+msgstr ""
+
+#: jstemplates/pages/overview.html:1
+msgid ""
+"\n"
+"<h1>Bem vindo ao <b>Civitate</b>!</h1>\n"
+"\n"
+"<h5>Versão demonstração para a freguesia do <b>{{ config.app.freguesia }}</"
+"b></h5>\n"
+"\n"
+"<img id=\"site-title-image\" src=\"{{STATIC_URL}}css/images/logo.png\" alt="
+"\"{{ config.app.name }}\"></img>\n"
+"</br>\n"
+"<p><a href=\"http://civitate.geocrafter.eu/\"><b>Civitate</b></a> é um "
+"projecto da <a href=\"http://www.geocrafter.eu/\">Geocrafter - Geospatial "
+"Studio</a>.\n"
+"    </br>\n"
+"    </br>\n"
+"    </br>\n"
+"    O <b>Civitate</b> é simples e intuitivo, basta seguir alguns passos:\n"
+"</p>\n"
+"<ul>\n"
+"    <li>Para criar uma nova sugestão/ocorrência basta clicar em <a href=\"/"
+"new\"><b>{{ config.place.add_button_label }}</b></a> e arrastar o mapa para "
+"o local desejado.</li>\n"
+"    <li>Escolha o <b>tipo</b> de sugestão/ocorrência que pretende introduzir."
+"</li>\n"
+"    <li>Preencha o formulário com os dados obrigatórios.</li>\n"
+"    <li>Submeta a sugestão/ocorrência e...é tudo! O seu novo local já deverá "
+"estar visível no mapa.</li>\n"
+"    <li>Pode utilizar a autenticação pelas principais redes sociais para "
+"partilhar mais facilmente a sua sugestão/ocorrência.</li>\n"
+"    <li>Pode criar comentários em locais já existentes, utilizando para isso "
+"o final do formulário do local escolhido.</li>\n"
+"    <li>Pode apoiar locais já existentes, tal como acontece nas redes "
+"sociais.</li>\n"
+"</ul>\n"
+"\n"
+"<p class=\"btn btn-block btn-large close-btn\">Estou pronto!</p>\n"
+msgstr ""
 
 #: jstemplates/place-detail.html:1
 msgid "View On Map"
@@ -420,7 +503,7 @@ msgstr ""
 
 #: jstemplates/place-detail.html:2
 msgid "em"
-msgstr ""
+msgstr "on"
 
 #: templates/index.html:21
 msgid "Built with "

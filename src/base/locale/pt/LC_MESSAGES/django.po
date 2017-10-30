@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-16 22:12+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: jstemplates/activity-list-item.html:1
+msgid ""
+"<strong>\n"
+"\n"
+"        {{#if target.submitter.avatar_url}}\n"
+"          <img src=\"{{ target.submitter.avatar_url }}\" class=\"avatar\" /"
+">\n"
+"        {{^}}\n"
+"          <img src=\"{{ STATIC_URL }}css/images/user-50.png\" class=\"avatar"
+"\" />\n"
+"        {{/if}}\n"
+"\n"
+"        {{#if target.submitter.name}}\n"
+"          {{ target.submitter.name }}\n"
+"        {{^}}\n"
+"          {{ target.submitter_name }}\n"
+"        {{/if}}\n"
+"\n"
+"        </strong>\n"
+"\n"
+"        {{#if is_place }}\n"
+"          {{ action }}: <span class=\"place-type\">{{ place.name }}</span>\n"
+"<!--           \n"
+"          {{#if place.location_text }}\n"
+"            em <span class=\"place-name\">{{>location-string place."
+"location_text }}</span>\n"
+"          {{/if }}\n"
+" -->\n"
+"        {{else}}\n"
+"          {{ action }}:\n"
+"          {{#if place.name }}\n"
+"            <span class=\"place-name\">{{ place.name }}</span>\n"
+"          {{else}}\n"
+"            a{{# place.type_starts_with_vowel }}n{{/ place."
+"type_starts_with_vowel }} {{ place.place_type_label }}\n"
+"          {{/if }}\n"
+"        {{/if }}\n"
+"        "
+msgstr ""
+"<strong>\n"
+"\n"
+"        {{#if target.submitter.avatar_url}}\n"
+"          <img src=\"{{ target.submitter.avatar_url }}\" class=\"avatar\" /"
+">\n"
+"        {{^}}\n"
+"          <img src=\"{{ STATIC_URL }}css/images/user-50.png\" class=\"avatar"
+"\" />\n"
+"        {{/if}}\n"
+"\n"
+"        {{#if target.submitter.name}}\n"
+"          {{ target.submitter.name }}\n"
+"        {{^}}\n"
+"          {{ target.submitter_name }}\n"
+"        {{/if}}\n"
+"\n"
+"        </strong>\n"
+"\n"
+"        {{#if is_place }}\n"
+"          {{ action }}: <span class=\"place-type\">{{ place.name }}</span>\n"
+"<!--           \n"
+"          {{#if place.location_text }}\n"
+"            at <span class=\"place-name\">{{>location-string place."
+"location_text }}</span>\n"
+"          {{/if }}\n"
+" -->\n"
+"        {{else}}\n"
+"          {{ action }}:\n"
+"          {{#if place.name }}\n"
+"            <span class=\"place-name\">{{ place.name }}</span>\n"
+"          {{else}}\n"
+"            a{{# place.type_starts_with_vowel }}n{{/ place."
+"type_starts_with_vowel }} {{ place.place_type_label }}\n"
+"          {{/if }}\n"
+"        {{/if }}\n"
+"        "
+
+#: jstemplates/auth-nav.html:1
+msgid "Log Out"
+msgstr "Fechar"
+
+#: jstemplates/auth-nav.html:2
+msgid "Sign In"
+msgstr "Entrar"
+
+#: jstemplates/auth-nav.html:3
+msgid ""
+"Signed in as</span> <span class=\"current-user\">{{ current_user \"name\" }}"
+msgstr ""
+"Autênticado como </span> <span class=\"current-user\">{{ current_user \"name\" }}"
+
+#: jstemplates/colorpicker-controls.html:1
+msgid "Fill"
+msgstr "Preenchimento"
+
+#: jstemplates/colorpicker-controls.html:2
+msgid "Stroke"
+msgstr "Contorno"
+
+#: jstemplates/filter-menu.html:1
+msgid "Reset filters"
+msgstr "Limpar filtros"
+
+#: jstemplates/geocode-address.html:1 jstemplates/place-list.html:4
+msgid "Search"
+msgstr "Pesquisa"
+
+#: jstemplates/gis-legend-content.html:1
+msgid "Basemaps"
+msgstr "Mapas Base"
+
+#: jstemplates/place-detail-edit-bar.html:1
+msgid "Edit this post"
+msgstr "Editar este post"
+
+#: jstemplates/place-detail-edit-bar.html:2
+msgid "Remove"
+msgstr "Remover"
+
+#: jstemplates/place-detail-edit-bar.html:3
+msgid "Save"
+msgstr "Salvar"
+
+#: jstemplates/place-detail-promotion-bar.html:1
+msgid "Recommend on Facebook"
+msgstr "Recomendar no Facebook"
+
+#: jstemplates/place-detail-promotion-bar.html:2
+msgid "Tweet This"
+msgstr "Tweetar isto"
+
+#: jstemplates/place-detail-survey.html:1
+msgid ""
+"<strong class=\"response-submitter\">\n"
+"                      {{#if submitter}}\n"
+"                        <img src=\"{{ submitter.avatar_url }}\" class="
+"\"avatar\" /> {{ submitter.name }}\n"
+"                      {{^}}\n"
+"                        <!-- TODO: FIXME: don't hardcode image URL -->\n"
+"                        <img src=\"{{ STATIC_URL }}css/images/user-50.png\" "
+"class=\"avatar\" /> {{ submitter_name }}\n"
+"                      {{/if}}\n"
+"                    </strong>\n"
+"                    <span class=\"response-date\">\n"
+"                      around {{ pretty_created_datetime }}\n"
+"                    </span>\n"
+"                    "
+msgstr ""
+"<strong class=\"response-submitter\">\n"
+"                      {{#if submitter}}\n"
+"                        <img src=\"{{ submitter.avatar_url }}\" class="
+"\"avatar\" /> {{ submitter.name }}\n"
+"                      {{^}}\n"
+"                        <!-- TODO: FIXME: don't hardcode image URL -->\n"
+"                        <img src=\"{{ STATIC_URL }}css/images/user-50.png\" "
+"class=\"avatar\" /> {{ submitter_name }}\n"
+"                      {{/if}}\n"
+"                    </strong>\n"
+"                    <span class=\"response-date\">\n"
+"                      em {{ pretty_created_datetime }}\n"
+"                    </span>\n"
+"                   "
+
+#: jstemplates/place-detail-survey.html:13
+msgid "Remove comment"
+msgstr "Remover comentário"
+
+#: jstemplates/place-detail-survey.html:14
+msgid "Update comment"
+msgstr "Actualizar comentário"
+
+#: jstemplates/place-form-field-types.html:1
+msgid "Change colors"
+msgstr "Mudar cores"
+
+#: jstemplates/place-form-field-types.html:2
+msgid "Choose an icon style below"
+msgstr "Escolher por baixo o tipo de icon"
+
+#: jstemplates/place-form-field-types.html:3
+msgid "Click anywhere on the map to place your marker"
+msgstr "Clicar no mapa para posicionar o marcador"
+
+#: jstemplates/place-form-field-types.html:4
+msgid "Click anywhere on the map to start drawing"
+msgstr "Clicar no mapa para iniciar o desenho"
+
+#: jstemplates/place-form-field-types.html:5
+msgid "Click on a tool below to draw on the map"
+msgstr "Clique numa ferramenta para desenhar no mapa"
+
+#: jstemplates/place-form-field-types.html:6
+msgid "Click on a tool below to modify your shape"
+msgstr "Clique numa ferramenta para modificar"
+
+#: jstemplates/place-form-field-types.html:7
+msgid "Click to continue drawing your shape"
+msgstr "Clique para continuar a desenhar"
+
+#: jstemplates/place-form-field-types.html:8
+msgid "Click to continue drawing"
+msgstr "Clique para continuar a desenhar"
+
+#: jstemplates/place-form-field-types.html:9
+msgid ""
+"Click to continue drawing, or click on your first point to complete your "
+"shape"
+msgstr ""
+"Clique para continuar a desenhar ou clique no primeiro ponto para terminar o desenho"
+
+#: jstemplates/place-form-field-types.html:10
+msgid "Click to continue drawing, or double click to complete your shape"
+msgstr "Clique para continuar a desenhar ou duplo clique para terminar"
+
+#: jstemplates/place-form-field-types.html:11
+msgid "Create marker"
+msgstr "Criar um ponto"
+
+#: jstemplates/place-form-field-types.html:12
+msgid "Create polygon"
+msgstr "Criar um polígono"
+
+#: jstemplates/place-form-field-types.html:13
+msgid "Create polyline"
+msgstr "Criar uma linha"
+
+#: jstemplates/place-form-field-types.html:14
+msgid "Delete marker"
+msgstr "Apagar um ponto"
+
+#: jstemplates/place-form-field-types.html:15
+msgid "Delete polygon"
+msgstr "Apagar um polígono"
+
+#: jstemplates/place-form-field-types.html:16
+msgid "Delete polyline"
+msgstr "Apagar uma linha"
+
+#: jstemplates/place-form-field-types.html:17
+msgid ""
+"Drag shape handles to edit your shape, or click on shape handles to delete "
+"vertices"
+msgstr ""
+"Arrastar os vértices para editar o desenho ou clicar nos vértice para apagar"
+#: jstemplates/place-form-field-types.html:18
+msgid "Drag your marker to reposition it"
+msgstr "Arrastar o ponto para o reposicionar"
+
+#: jstemplates/place-form-field-types.html:19
+msgid "Edit marker"
+msgstr "Editar ponto"
+
+#: jstemplates/place-form-field-types.html:20
+msgid "Edit polygon"
+msgstr "Editar polígono"
+
+#: jstemplates/place-form-field-types.html:21
+msgid "Edit polyline"
+msgstr "Editar linha"
+
+#: jstemplates/place-form-field-types.html:22
+msgid "Not published"
+msgstr "Não publicado"
+
+#: jstemplates/place-form-field-types.html:23
+msgid "Please choose a url without a forward slash character (/) in it."
+msgstr "Por favor escolha um URL sem o caracter barra (/) "
+
+#: jstemplates/place-form-field-types.html:24
+msgid "Published"
+msgstr "Publicado"
+
+#: jstemplates/place-form-field-types.html:25
+msgid "Select..."
+msgstr "Seleccione..."
+
+#: jstemplates/place-form-field-types.html:26
+msgid "This url is already in use. Please try another."
+msgstr "Este URL já está em uso. Por favor tente outro."
+
+#: jstemplates/place-form-field-types.html:27
+msgid ""
+"When created, this post will be visible <strong>only to logged-in editors</"
+"strong>"
+msgstr ""
+"Quando criado este post será visível <strong>apenas a editores autenticados</"
+"strong>"
+
+#: jstemplates/place-form-field-types.html:28
+msgid ""
+"When created, this post will be visible to <strong>all map users</strong>"
+msgstr ""
+"Quando criado este post será visível <strong>a todos os utilizadores do mapa</strong>"
+
+#: jstemplates/place-form-field-types.html:29
+msgid ""
+"When saved, this post will be visible <strong>only to logged-in editors</"
+"strong>"
+msgstr ""
+"Quando salvo este post será visível <strong>apenas a editores autenticados</"
+"strong>"
+
+#: jstemplates/place-form-field-types.html:30
+msgid "When saved, this post will be visible to <strong>all map users</strong>"
+msgstr "Quando salvo este post será visível a <strong>todos os utilizadores do mapa</strong>"
+
+#: jstemplates/place-form-field-types.html:31
+msgid "Your post will be accessible at:"
+msgstr "O seu post será acessível em:"
+
+#: jstemplates/place-form-field-types.html:32
+#: jstemplates/place-survey-form.html:1
+msgid "optional"
+msgstr "opcional"
+
+#: jstemplates/place-form-messages.html:1
+msgid "First, drag the map to set your location"
+msgstr "Primeiro arraste o mapa para escolher a localização"
+
+#: jstemplates/place-form-messages.html:2
+msgid ""
+"It looks like you didn't create any geometry yet. Use the drawing tools to "
+"create a shape on the map."
+msgstr ""
+"Parece que ainda não criou qualquer geometria. Use as ferramentas de edição para "
+"criar uma geometria no mapa."
+
+#: jstemplates/place-form-messages.html:3
+msgid ""
+"It looks like you didn't set your location yet. Please drag the map to your "
+"location."
+msgstr ""
+"Parece que ainda não definiu a sua localização. Por favor arraste o mapa para a "
+"localização pretendida."
+
+#: jstemplates/place-form-messages.html:4
+msgid "Setting your location..."
+msgstr "Obtendo a sua localização..."
+
+#: jstemplates/place-form-messages.html:5
+msgid "Use the drawing tools to create a shape on the map."
+msgstr "Utilize as ferramentas de edição para criar uma geometria no mapa."
+
+#: jstemplates/place-list.html:1
+msgid "Most Recent"
+msgstr "Mais Recente"
+
+#: jstemplates/place-list.html:2
+msgid "Most {{ support_label_plural }}"
+msgstr "Mais {{ support_label_plural }}"
+
+#: jstemplates/place-list.html:3
+msgid "Most {{ survey_label_plural }}"
+msgstr "Mais {{ survey_label_plural }}"
+
+#: jstemplates/place-list.html:5
+msgid "Search..."
+msgstr "Pesquisar..."
+
+#: jstemplates/place-survey-response.html:1
+msgid "Thanks for participating!"
+msgstr "Obrigado por participar!"
+
+#: jstemplates/unsupported-overlay.html:1
+msgid "Proceed Anyway"
+msgstr "Proceder na mesma"
+
+#: jstemplates/unsupported-overlay.html:2
+msgid ""
+"You are using an unsupported browser. Please\n"
+"    <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve\n"
+"    your experience."
+msgstr ""
+
+#: templates/base.html:110
+#, python-format
+msgid ""
+"\n"
+"        Oops, %(config.app.name)s needs JavaScript to work properly.\n"
+"        "
+msgstr ""
+
+#: templates/base.html:115
+#, python-format
+msgid ""
+"\n"
+"        %(config.app.name)s is great but it needs something called "
+"JavaScript to work\n"
+"        properly. But fear not, it's really easy to turn on. Click\n"
+"        <a href=\"//enable-javascript.com/\" target=\"_blank\">here</a> for "
+"simple instructions!\n"
+"        "
+msgstr ""
+
+#: templates/base.html:130
+msgid ""
+"We can't connect to the server at the moment. Hang tight while we re-"
+"establish communication."
+msgstr ""
+
+#: templates/base.html:144
+msgid "Close"
+msgstr "Fechar"
