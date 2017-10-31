@@ -14,7 +14,6 @@ RUN apk add --no-cache --update \
     git \
     curl \
     bash \
-    nodejs-npm \
     postgresql-dev \
     libjpeg-turbo-dev \
     musl-dev \
@@ -55,4 +54,4 @@ VOLUME /platform/static
 EXPOSE ${PORT}
 
 # Bootstrap script
-CMD /platform/start.sh
+CMD /platform/scritps/start.sh
