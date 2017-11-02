@@ -42,16 +42,19 @@ RUN LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install -r /platform/requirements
 # Set the default directory where CMD will execute
 WORKDIR /platform
 
+# Install deps and clear caches
 # Fix this: https://stackoverflow.com/questions/18643998/geodjango-geosexception-error
 RUN mkdir static \
     && sed -i.bak "s/geos_version().decode()/geos_version().decode().split(\' \')[0]/g" /usr/local/lib/python2.7/site-packages/django/contrib/gis/geos/libgeos.py \
     && rm -rf ~/.cache/pip/* \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && npm install \
+    && npm cache clean
 
 VOLUME /platform/static
 
-# Expose port
-EXPOSE ${PORT}
+# Expose default port
+EXPOSE 8000
 
 # Bootstrap script
-CMD /platform/scritps/start.sh
+CMD /platform/scripts/start.sh

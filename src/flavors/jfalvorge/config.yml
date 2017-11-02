@@ -92,9 +92,9 @@ map:
             dashArray: "4, 10"
 
 # TODO: Client specific - dataset per client name!
-    - id: reports # should match dataset name (make this client name!!!)
+    - id: jfalvorge # should match dataset name (make this client name!!!)
       type: place
-      slug: reports
+      slug: jfalvorge
 
 # The values map the place type to map icons (defined below).
 place_types:
@@ -512,7 +512,7 @@ sidebar:
             - id: freguesia
               title: _(Freguesia)
               visibleDefault: true
-            - id: reports
+            - id: jfalvorge
               title: _(Reportes)
               visibleDefault: true
 
@@ -572,7 +572,7 @@ activity:
   # Optional. Activity is supported by default. Set to false to disable.
   enabled: true
   # How often to refresh the activity list, in milliseconds.
-  interval: 30000
+  interval: 60000
 
 
 # Place Types
@@ -599,7 +599,7 @@ place:
     - category: infra
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/street-sidewalk.png
       value: infra
       label: _(Infraestruturas e Rodovias)
@@ -658,7 +658,7 @@ place:
     - category: waste
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/health.png
       value: waste
       label: _(Higiene Urbana e Recolha de Resíduos)
@@ -715,7 +715,7 @@ place:
     - category: water
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/fountain.png
       value: water
       label: _(Águas e Saneamento)
@@ -774,7 +774,7 @@ place:
     - category: park
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/tree.png
       value: park
       label: _(Parques e Lazer)
@@ -825,7 +825,7 @@ place:
     - category: security
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/safety.png
       value: security
       label: _(Segurança e Vigilância)
@@ -876,7 +876,7 @@ place:
     - category: ideia
       includeOnForm: true
       name: location_type
-      dataset: reports
+      dataset: jfalvorge
       icon_url: /static/css/images/markers/idea.png
       value: ideia
       label: _(Ideia/Sugestão)

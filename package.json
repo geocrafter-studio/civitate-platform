@@ -27,7 +27,7 @@
     "build-scss-production": "./scripts/run-node-sass.sh -p",
     "start": "npm run build-scss && npm run watch-scss & npm run watch-js & ./src/manage.py runserver",
     "start-dev": "npm run build-scss && npm run watch-scss & npm run watch-js & ./src/manage.py runserver 0.0.0.0:8001",
-    "start-prod": "npm run build-scss-production && npm run watch-scss & npm run watch-js & cd src/ & gunicorn project.wsgi -w 4 -b 0.0.0.0:${PORT} --log-level=info ",
+    "start-prod": "npm run build-scss-production && npm run watch-scss & npm run watch-js & gunicorn wsgi:application -w 4 -b 0.0.0.0:8000 --log-level=info",
     "build-js": "webpack -d",
     "build-js-production": "webpack -p && cat src/base/static/dist/bundle.js | gzip > src/base/static/dist/bundle.js.gz",
     "watch-js": "webpack -d --watch",
