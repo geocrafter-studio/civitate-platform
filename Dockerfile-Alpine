@@ -53,6 +53,9 @@ RUN mkdir static \
 
 VOLUME /platform/static
 
+# Copy .env file
+COPY ./src/.env /platform/src/.env
+
 # Expose default port
 EXPOSE 8000
 
