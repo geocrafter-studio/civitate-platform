@@ -1,4 +1,4 @@
 staticfiles
-.env
-src/.env
+#.env
+#src/.env
 src/base/static/dist/*
