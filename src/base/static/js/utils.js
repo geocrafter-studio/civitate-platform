@@ -76,7 +76,7 @@ var self = (module.exports = {
 
   getSocialUrl: function(model, service) {
     var appConfig = Shareabouts.Config.app,
-      shareUrl = "http://social.mapseed.org",
+      shareUrl = appConfig.share_url,
       getPathname = model => {
         if (model.get("url-title")) {
           return model.get("url-title");

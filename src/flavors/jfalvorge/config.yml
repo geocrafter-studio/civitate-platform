@@ -11,8 +11,10 @@ app:
   meta_description: "_(Bem Vindo ao Civitate! Versão demonstração para a freguesia de Alvorge.)"
   # Meta author that will show up in Google search results
   meta_author: civitate.geocrafter.eu
-  # Civitate version
+  # Civitate version - align this with bundle.js
   version: 0.7.6.8
+  # The configured share_url microservice
+  share_url: "http://civitate.geocrafter.eu/social"
 
   # When the map loads, existing places will be loaded in chunks. By default,
   # the size of the chunks will be a reasonable default dictated by the API
@@ -950,6 +952,7 @@ place:
       attrs:
         - key: accept
           value: image/*
+    # TODO: Test these ones...
     geom_toolbar:
       type: geometryToolbar
       prompt: _(Publicado?)

@@ -16,9 +16,9 @@ env = os.environ
 
 if 'DEBUG' in env:
     DEBUG = TEMPLATE_DEBUG = (env.get('DEBUG').lower() in
-                              ('true', 'on', 't', 'yes'))
+                              ('true', 'on', 't', 'yes', True))
 else:
-    DEBUG = True
+    DEBUG = False
     TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -374,9 +374,9 @@ if 'CLICKY_ANALYTICS_ID' in env:
 ##############################################################################
 # Services
 
-if 'DEBUG' in env:
-    DEBUG = TEMPLATE_DEBUG = (env.get('DEBUG').lower() in
-                              ('true', 'on', 't', 'yes'))
+#if 'DEBUG' in env:
+#    DEBUG = TEMPLATE_DEBUG = (env.get('DEBUG').lower() in
+#                              ('true', 'on', 't', 'yes'))
 # email notification service:
 if all(k in env for k in ['EMAIL_ADDRESS', 'EMAIL_HOST', 'EMAIL_PORT',
                           'EMAIL_USERNAME', 'EMAIL_PASSWORD', 'EMAIL_USE_TLS',

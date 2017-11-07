@@ -11,6 +11,8 @@ MAINTAINER Fernando Ribeiro <fernando.ribeiro@geocrafter.eu>
 # Install basic applications
 RUN apk add --no-cache --update \
     gcc \
+    g++ \
+    gettext \
     make \
     git \
     curl \
@@ -58,7 +60,7 @@ VOLUME /platform/static
 COPY ./src/.env /platform/src/.env
 
 # Expose default port
-#EXPOSE 8000
+EXPOSE 8000
 
 # Bootstrap script
 CMD /platform/scripts/start.sh
