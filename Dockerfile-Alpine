@@ -52,7 +52,7 @@ RUN mkdir static \
     && rm -rf ~/.cache/pip/* \
     && rm -rf /var/cache/apk/* \
     && npm install \
-    && npm cache clean
+    && npm cache clean --force
 
 VOLUME /platform/static
 

@@ -241,6 +241,9 @@ if all([key in env for key in ('SHAREABOUTS_AWS_KEY',
     STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
     STATIC_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 
+else:
+    STATIC_URL = '/static/'
+
 
 ##############################################################################
 # Flavor-specific settings
@@ -335,7 +338,7 @@ COMPRESS_OUTPUT_DIR = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 COMPRESS_URL = STATIC_URL
 
 COMPRESS_PRECOMPILERS = (
